@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chick Lighting</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="./STYLE.CSS">
+</head>
+<link rel="stylesheet" href="style.css">
+<style>
+
+    body{
+        background-color: #1c1c1c;
+        color: #e0e0e0;
+        padding-top: 80px;
+    }
+
+    .heading{
+        display: flex;
+        font-size: 40px;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        font-weight: bolder;
+        position: relative; 
+        padding-bottom: 10px;
+        color: #f4c430;
+        padding-top: 100px;
+    }
+
+    .heading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 80px;
+        height: 3px;
+        background-color: #f4c430;
+        border-radius: 2px;
+    }
+
+    .box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .Select{
+      background-color: #2a2a2a;
+      color: #e0e0e0;
+        width: 250px;
+        height: 30px;
+        font-weight: bold;
+        font-size: 13px;
+        border: #444;
+    }
+
+    .cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; 
+    color: #e0e0e0;
+    justify-items: center;
+    padding: 20px 30px;
+    
+
+    }
+
+    .cards01{
+    display: grid;
+    color: #e0e0e0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; 
+    justify-items: center;
+    padding: 20px 30px;
+    
+
+    }
+
+    .card01{
+        max-width: 450px;
+        width: 100%;
+        background-color: #2a2a2a;
+        height: auto;
+        border-radius: 3%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: 0.4s;
+        
+    }
+
+    .card01 img{
+        max-width: 450px;
+        width: 100%;
+        height: 100%;
+        max-height: 250px;
+    }
+
+    .card01 section{
+        text-align: center;
+        align-items: center;
+        background-color: #2a2a2a;
+        color: #e0e0e0;
+        border: #444;
+    }
+
+    .card01 p{
+        font-size: 20px;
+        color: #e0e0e0;
+    }
+
+    .card01 h2{
+        font-family: Arial, sans-serif;
+        color: #f4c430;
+    }
+
+    .card01:hover{
+       transform: translateY(-10px) scale(1.01);
+    }
+
+    .card01 button{
+        max-width: 140px;
+        width: 100%;
+        height: 38px;
+        border-radius: 30px;
+        border: none;
+        background-color: #f4c430;
+        color: #1c1c1c;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+    }
+
+    .card01 button:hover{
+       transform: scale(1.08);
+    }
+
+    .card01 button:active{
+        background-color: #d4a500;
+    }
+
+    .card{
+      background-color: #2a2a2a;
+        max-width: 450px;
+        width: 100%;
+        height: auto;
+        border-radius: 3%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: 0.4s;
+        
+    }
+
+    .card img{
+        max-width: 450px;
+        width: 100%;
+        height: 100%;
+        max-height: 250px;
+    }
+
+    .card section{
+        padding-left: 10px;
+    }
+
+    .card p{
+        font-size: 14px;
+        color: #e0e0e0;
+    }
+
+    .card h2{
+        font-family: Arial, sans-serif;
+        color: #f4c430;
+    }
+
+    .card:hover{
+       transform: translateY(-10px) scale(1.01);
+    }
+
+    .card button{
+        max-width: 140px;
+        width: 100%;
+        height: 38px;
+        border-radius: 30px;
+        border: none;
+        background-color: #f4c430;
+        color: #1c1c1c;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+    }
+
+    .card button:hover{
+       transform: scale(1.08);
+    }
+
+    .card button:active{
+        background-color: #d4a500;
+    }
+
+    .card03{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px; 
+        justify-items: center;
+        padding: 20px 30px;
+    }
+
+
+    .gallery-item {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        border-radius: 10px;
+}
+
+    .gallery-item img {
+        width: 270px;
+        height: 270px;
+        border-radius: 10px;
+        transition: all 0.5s ease;
+}
+
+    .overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        color: #e0e0e0;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: all 0.5s ease;
+        border-radius: 10px;
+}
+
+    .gallery-item:hover img {
+        filter: brightness(50%);
+        transform: scale(1.05);
+}
+
+    .gallery-item:hover .overlay {
+        opacity: 1;
+}
+
+.feedback-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px 80px;
+    gap: 50px;
+    flex-wrap: wrap;
+    background-color: #2a2a2a;
+}
+
+.feedback-text {
+    flex: 1;
+    min-width: 280px;
+    margin-top: 20%;
+    text-align: center;
+    color: #e0e0e0;
+}
+
+.feedback-text h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #f4c430;
+}
+
+.feedback-text p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.feedback-text h2 {
+    font-size: 24px;
+    color: #f4c430;
+}
+
+.feedback-form {
+    flex: 1;
+    min-width: 300px;
+    background-color: #1c1c1c;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.feedback-form input, 
+.feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.feedback-form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 30px;
+    background-color: #f4c430;
+    color: #1c1c1c;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.feedback-form button:hover {
+    transform: translateY(-5px);
+}
+
+.feedback-form button:active {
+    background-color: gray;
+}
+
+        .cards0001:hover {
+      position: relative;
+      transform: translateY(-20px) scale(1);
+    }
+    .cards0001 {
+      position: relative;
+      transition: all 0.4s ease;
+    }
+
+    .cards0001 button{
+      position: relative;
+      transition: all 0.4s ease;
+    }
+
+    .cards0001 button:hover{
+      transform: scale(1.08);
+    }
+
+    .azmeer0{
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .azmeer button{
+      width: 130px;
+      height: 40px;
+      border: none;
+      background-color:  #f4c430;
+      border-radius: 30px;
+      transition: all 0.4s ease;
+    }
+
+    .azmeer1 button{
+      width: 200px;
+      height: 40px;
+      border: 3px solid white;
+      color: white;
+      background-color:  transparent;
+      border-radius: 30px;
+      transition: all 0.4s ease;
+    }
+
+    .azmeer0 button:hover{
+      transform: translateY(-5px) scale(1);
+    }
+
+.azmeer button:active{
+  background-color: #d4a500;
+}
+
+.azmeer1 button:active{
+  background-color: #4d4d4c;
+}
+
+
+
+
+
+     @media (min-width: 1440px) {
+    .cards, .cards01, .card03 {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .heading { font-size: 34px; }
+    .cards, .cards01 { grid-template-columns: repeat(2,1fr); }
+    .card03 { grid-template-columns: repeat(3,1fr); }
+    .feedback-section { padding: 40px; }
+}
+
+@media (max-width: 768px) {
+    .heading { font-size: 28px; }
+    .cards, .cards01 { grid-template-columns: repeat(2,1fr); padding:10px; }
+    .card03 { grid-template-columns: repeat(2,1fr); }
+    .box { flex-direction: column; gap: 15px; }
+    .Select { width: 90%; }
+    .gallery-item img { width: 220px; height: 220px; }
+    .feedback-section { flex-direction: column; padding: 30px; }
+}
+
+
+@media (max-width: 480px) {
+    .heading { font-size: 22px; padding: 10px; }
+    .cards, .cards01, .card03 { grid-template-columns: 1fr; padding: 10px; }
+    .card img, .card01 img { height: 180px; }
+    .card p, .card01 p { font-size: 13px; }
+    .overlay { font-size: 16px; }
+    .box { padding: 10px; }
+    .Select { width: 100%; }
+}
+
+@media (max-width: 360px) {
+    .heading { font-size: 20px; }
+    .card h2, .card01 h2 { font-size: 16px; }
+    .card p, .card01 p { font-size: 12px; }
+    .card button, .card01 button { font-size: 13px; }
+    .gallery-item img { height: 180px; }
+}
+
+</style>
+<body>
+
+  <div id="home">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark bg-gradient" style="border-bottom: 3px solid orange;">
+  <div class="container-fluid">
+
+    <a class="navbar-brand text-white fs-1 fw-semibold" href="#">ChicLighting & Design</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3 fs-4">
+        <li class="nav-item">
+          <a class="nav-link active" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#categeries">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#products">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#offers">Offers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#gallery">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="feedback.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="FAQ.html">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="../Complete Project/11111.jpg" class="d-block w-100" alt="...">
+      <div id="azmeer" class="carousel-caption  d-flex flex-column h-100 
+      align-items-center
+      justify-content-center  bottom-0">
+        <h2>Illuminate your world with modern design</h2>
+        <p class="fs-4">Create moments that glow with</p>
+        <p class="fs-4">ChicLighting & Design !</p>
+        <div class="azmeer0">
+          <div class="azmeer">
+        <button>Shop Now</button>
+        </div>
+        <div class="azmeer1">
+        <button>Explore Collection</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="categeries">
+<h2 class="heading">Lighting Categories </h2>
+    <br><br>
+
+    <div class="cards01">
+
+    <div class="card01">
+        <img src=".//Spanish lights.webp">
+        <section>
+        <h2>Celling Light</h2>
+      <br>
+      <p>Stylish designs of celling lights to light up every corner of your home.</p>
+      <br>
+        <button>Explore</button>
+        </section>
+    </div>
+
+    <div class="card01">
+        <img src=".//Ultra-Bright LED Outdoor Wall Light.jpg">
+        <section>
+        <h2>Wall Light</h2>
+      <br>
+      <p>Add warmth and style to your walls with elegant lighting.</p>
+      <br>
+        <button>Explore</button>
+        </section>
+    </div>
+
+    <div class="card01">
+        <img src=".//lamp.JPG">
+        <section>
+        <h2>Lamps</h2>
+      <br>
+      <p>Bring charm and comfort to your space with stylish lamps.</p>
+      <br>
+        <button>Explore</button>
+        </section>
+    </div>
+
+    <div class="card01">
+        <img src=".//outdoor light.jpg">
+        <section>
+        <h2>Outdoor Lights</h2>
+      <br>
+      <p>Illuminate your gardens and pathways with a timeless glow that enhances every evening.</p>
+      <br>
+        <button>Explore</button>
+        </section>
+    </div>
+
+    <div class="card01">
+        <img src=".//fan.png">
+        <section>
+        <h2>Fans</h2>
+      <br>
+      <p>Add a touch of elegance and freshness to your home with modern designer fans.</p>
+      <br>
+        <button>Explore</button>
+        </section>
+    </div>
+
+    <div class="card01">
+        <img src="../Complete Project/Home Accents.jpg">
+        <section>
+        <h2>Home Accents</h2>
+      <br>
+      <p>Add beauty, charm, and character to every corner with elegant home accents.</p>
+      <br>
+        <button>Explore</button>
+        </section>
+    </div>
+</div>
+    </div>
+
+    <div id="products">
+
+    <h2 class="heading">Featured Products</h2>
+
+    <div class="box">
+    <p>
+    <Label>Brand</Label><br><br>
+    <select class="Select">
+    <option>All Brands</option>
+    <option>Lumiere</option>
+    <option>Brilliant Glow</option>
+    <option>Elegant Illumination</option>
+    </select>
+    </p>
+
+    <p>
+    <Label>Type</Label><br><br>
+    <select class="Select">   
+    <option>All Types</option>
+    <option>Chandeliers</option>
+    <option>Pendant Lights</option>
+    <option>Table Lamps</option>
+    </select>
+    </p>
+
+    <p>
+    <Label>Price Range</Label><br><br>
+    <select class="Select">   
+    <option>All Prices</option>
+    <option>Under $100</option>
+    <option>$100-$300</option>
+    <option>$300-$500</option>
+    </select>
+    </p>
+
+    <p>
+    <Label>LED Subcategories</Label><br><br>
+    <select class="Select">    
+    <option>All LED Types</option>
+    <option>Spot Lights</option>
+    <option>Decorative Lights</option>
+    <option>Smart Lights</option>
+    </select>
+    </p>
+    </div>
+
+    <div class="cards">
+
+    <div class="card">
+        <img src=".//Ultra-Bright LED Outdoor Wall Light.jpg">
+        <section>
+        <h2>Ultra-Bright LED Outdoor Wall Light</h2>
+        <h2>$420.54</h2>
+        <p>Material: Made of durable aluminum alloy.</p>
+        <p>A sleek aluminum wall light with a sensor and dimmable LED, built for outdoor, weather-resistant use.</p>
+        <button>View Details</button>
+        </section>
+    </div>
+
+    <div class="card">
+        <img src="../Complete Project/hausi chair.jpg">
+        <section>
+        <h2>Haosi Chair</h2>
+        <h2>$499.99</h2>
+        <p>Material: Velvet & Design: Modern</p>
+        <p>Haosi Dining Room Home Furniture Metal Leg Velvet Upholstered Chairs Dining Room Side Chair for Living Room</p>
+        <button>View Details</button>
+        </section>
+    </div>
+
+    <div class="card">
+        <img src=".//chairs.webp">
+        <section>
+        <h2>Sabah 1+4 Ceramic Dining Set</h2>
+        <h2>$310.29</h2>
+        <p>Material: Tabletop & Table frame</p>
+        <p>1+4 dining set with ceramic tabletop and PU leather chairs, ideal for compact kitchens.</p>
+        <button>View Details</button>
+        </section>
+    </div>
+
+    <div class="card">
+        <img src=".//8153EA64-F833-4F66-A231-51CE4F8E9C89.webp">
+        <section>
+        <h2>USB LED Square Night Light</h2>
+        <h2>$360.64</h2>
+        <p>Material: crystal acrylic</p>
+        <p>A compact, square USB-powered plastic lamp for soft ambient lighting in bedrooms, kitchens, or study areas.</p>
+        <button>View Details</button>
+        </section>
+    </div>
+
+    <div class="card">
+        <img src=".//7500538.jpg">
+        <section>
+        <h2>Darcy Sofa</h2>
+        <h2>$390.87</h2>
+        <p>Material: Upholstery,Frame & Cushions</p>
+        <p>The Darcy Sofa combines modern style with soft polyester and supportive foam cushions for everyday comfort.</p>
+        <button>View Details</button>
+        </section>
+    </div>
+
+    <div class="card">
+        <img src=".//Modern Luxury Gold Crystal Chandelier.jpg">
+        <section>
+        <h2>Gold Crystal Chandelier</h2>
+        <h2>$450.29</h2>
+        <p>Material: Metal body + High-class clear crystals.</p>
+        <p>A luxurious gold-finished LED chandelier adorned with clear crystals, ideal for adding glamour to any living room.</p>
+        <button>View Details</button>
+        </section>
+    </div>
+
+        <div class="card">
+        <img src=".//Spanish lights.webp">
+        <section>
+        <h2>Alabaster Ring Pendant Light</h2>
+        <h2>$215.76</h2>
+        <p>Material: Rope: Leather & Frame: Metal</p>
+        <p>Alabaster ring pendant with leather rope for warm ambient lighting.</p>
+        <button>View Details</button>
+        </section>
+    </div>
+
+    <div class="card">
+        <img src=".//fan.png">
+        <section>
+        <h2>Retro 52-Inch Ceiling Fan</h2>
+        <h2>$280.65</h2>
+        <p>Material: Blades, Light Fixture & Remote Control</p>
+        <p>Elegant Crystal Chandelier with LED compatibility, perfect for dining rooms and enterways</p>
+        <button>View Details</button>
+        </section>
+    </div>
+
+    <div class="card">
+        <img src=".//lamp.JPG">
+        <section>
+        <h2>lighting Lamp</h2>
+        <h2>$300.93</h2>
+        <p>Material: Crystal & Bras</p>
+        <p>Elegant Crystal Chandelier with LED compatibility, perfect for dining rooms and enterways</p>
+        <button>View Details</button>
+        </section>
+    </div>
+
+    <div class="card">
+        <img src=".//SOFA.jpg">
+        <section>
+        <h2>Yellow Sofa</h2>
+        <h2>$360.73</h2>
+        <p>Material: Upholstery & Cushions</p>
+        <p>Yellow Sofa with polyester upholstery and comfortable foam cushions.</p>
+        <button>View Details</button>
+        </section>
+    </div>
+
+    <div class="card">
+        <img src=".//Garden Lamp.jpg">
+        <section>
+        <h2>Stainless Steel</h2>
+        <h2>$180.42</h2>
+        <p>Material: Lamp Body, Light Source & Shade</p>
+        <p>IP44 waterproof solar lamp that lights up outdoor spaces automatically.</p>
+        <button>View Details</button>
+        </section>
+    </div>
+
+    <div class="card">
+        <img src=".//new fan.jpg">
+        <section>
+        <h2>Dreo Air Circulator Fan</h2>
+        <h2>$490.43</h2>
+        <p>Material: ABS body with copper motor and metal blades.</p>
+        <p>Quiet 12-inch fan with strong airflow and 3 speeds for efficient cooling.</p>
+        <button>View Details</button>
+        </section>
+    </div>
+    </div>
+</div>
+
+<div id="offers">
+    <div style="border: 3px solid; width: 100%; background: linear-gradient(#0A0A0A, #2B2B2B); padding: 60px 0;">
+  <h1 style="text-align: center; color: #f4c430;">Special Offers</h1>
+  <hr style="display: block; border: none; border-bottom: 5px solid  #f4c430; width: 125px; margin: 10px auto 40px;">
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
+
+
+    <div class="cards0001" style="width: 300px; background: linear-gradient(#2a2a2a, #343434);; border-radius: 20px; padding: 20px; text-align: center; transition: all 0.4s ease;">
+      <img src="../Complete Project/p.png" alt="" width="60" style="margin-top: 10px;">
+      <h2 style="color: #f4c430; margin-top: 20px;">Summer Sale</h2>
+      <p style="color: #e0e0e0; font-size: 14px;"><b>Up to 40% off selected ceiling lights and chandeliers. Limited time offer!</b></p>
+      <button style="width: 60%; height: 45px; border-radius: 30px; color: #f4c430; background: transparent; border: 2px solid #f4c430; margin-top: 20px;">
+        <b>Shop Now</b>
+      </button>
+    </div>
+    
+    <div class="cards0001" style="width: 300px; background: linear-gradient(#2a2a2a, #343434);; border-radius: 20px; padding: 20px; text-align: center; transition: all 0.4s ease;">
+      <img src="../Complete Project/sh.png" alt="" width="80" style="margin-top: 10px;">
+      <h2 style="color: #f4c430; margin-top: 20px;">Free Shipping</h2>
+      <p style="color: #e0e0e0; font-size: 14px;"><b>Free standard shipping on all orders over $100. No code needed.</b></p>
+      <button style="width: 60%; height: 45px; border-radius: 30px; color: #f4c430; background: transparent; border: 2px solid #f4c430; margin-top: 20px;">
+        <b>Learn More</b>
+      </button>
+    </div>
+
+    <div class="cards0001" style="width: 300px; background: linear-gradient(#2a2a2a, #343434); border-radius: 20px; padding: 20px; text-align: center; transition: all 0.4s ease;">
+      <img src="../Complete Project/bulb.png" alt="" width="50" style="margin-top: 10px;">
+      <h2 style="color: #f4c430; margin-top: 20px;">LED Bulbs</h2>
+      <p style="color: #e0e0e0; font-size: 14px;"><b>Buy 3 smart LED bulbs and get 1 free. Create your smart lighting system today.</b></p>
+      <button style="width: 60%; height: 45px; border-radius: 30px; color: #f4c430; background: transparent; border: 2px solid #f4c430; margin-top: 20px;">
+        <b>Get Offer</b>
+      </button>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<div id="gallery">
+    <h2 class="heading">Design Gallery</h2>
+
+    <div class="card03">
+  <div class="gallery-item">
+    <img src=".//lamp.JPG">
+    <div class="overlay">Elegant Lamp</div>
+  </div>
+  <div class="gallery-item">
+    <img src=".//SOFA.jpg">
+    <div class="overlay">Modern Sofa</div>
+  </div>
+  <div class="gallery-item">
+    <img src=".//fan.png">
+    <div class="overlay">Ceiling Fan</div>
+  </div>
+  <div class="gallery-item">
+    <img src=".//chairs.webp">
+    <div class="overlay">Dining Chairs</div>
+  </div>
+  <div class="gallery-item">
+    <img src=".//Spanish lights.webp">
+    <div class="overlay">Pendant Light</div>
+  </div>
+  <div class="gallery-item">
+    <img src=".//Ultra-Bright LED Outdoor Wall Light.jpg">
+    <div class="overlay">Wall Light</div>
+  </div>
+  <div class="gallery-item">
+    <img src=".//new fan.jpg">
+    <div class="overlay">Air Circulator</div>
+  </div>
+  <div class="gallery-item">
+    <img src="../Complete Project/Heac84332c3394dc890e1d6f73d8a7517o.jpg_300x300.avif">
+    <div class="overlay">Velvet Chair</div>
+  </div>
+</div>
+
+</div>
+
+<div id="contact">
+ <section class="feedback-section">
+    <div class="feedback-text">
+        <h1>We'd Love Your Feedback</h1>
+        <p>Help us improve our product and services by sharing your experience with<br>Chic Lighting and Design.</p>
+        <h2>Download Resources</h2>
+    </div>
+    
+    <div class="feedback-form">
+        <form>
+            <p>
+                <label>FIRST NAME:</label><br>
+                <input type="text" name="FN" placeholder="First Name" maxlength="50">
+            </p>
+            <p>
+                <label>LAST NAME:</label><br>
+                <input type="text" name="LN" placeholder="Last Name" maxlength="50">
+            </p>
+            <p>
+                <label>Email:</label><br>
+                <input type="email" name="email" placeholder="Email">
+            </p>
+            <p>
+                <label>SUBJECT:</label><br>
+                <input type="text" name="subject" placeholder="Select a subject">
+            </p>
+            <p>
+                <label>YOUR MESSAGE:</label><br>
+                <textarea cols="35" rows="4" placeholder="Type your message here..."></textarea>
+            </p>
+            <button type="button" onclick="alert('Your Feedback Has Been Submitted Successfully')">Submit Feedback</button>
+        </form>
+    </div>
+</section>
+</div>
+
+<div style="border: 3px solid black; width: 100%; height: 440px; background: linear-gradient(#2B2B2B , #0A0A0A);">
+     <div style="position: relative; bottom: 68px; right: 15px;">
+       
+     <div style="position: relative;top: 20px;left: 95px;">
+       
+     
+     <img src="../footer S/logos/f.png" alt=""  width="3.5%" style="position: relative;left: 1040px; top: 350px;">
+     <img src="../footer S/logos/t.png" alt=""  width="3.5%" style="position: relative; left: 1050px; top: 350px;">
+     <img src="../footer S/logos/I.png" alt=""  width="3.5%" style="position: relative; left: 1060px; top: 350px;">
+     <img src="../footer S/logos/A.png" alt=""  width="3.5%" style="position: relative; left: 1070px; top: 350px;" >
+     
+       
+     </div>
+     <div style="position: relative;left: 130px; top: 54px;">
+
+     <h3 style="color: orange;position: relative;right: 20px;">Quick links</h3>
+       <li style="color: white;"><b>Home</b></li>
+       <br />
+       <li style="color: white"><b>Categories</b></li>
+       <br>
+       <li style="color: white"><b>Products</b></li>
+       <br>
+       <li style="color: white"><b>Special Offers </b></li>
+       <br>
+      <li style="color: white"><b>Gallery</b></li>
+   </div>
+   <div style="position: relative; left: 450px; bottom: 230px;">
+     
+   
+        <h3 style="color: orange; position: relative; right: 20px;">Costumer Service</h3>
+        <li style="color: white"><b>Shipping Information</b></li>
+        <br><li style="color: white"><b>Returns & Exchanges</b></li>
+        <br>
+        <li style="color: white"><b>Product Care </b></li>
+        <br>
+        <li style="color: white"><b>Warranty</b></li>
+        <br>
+        <li style="color: white"><b>Contact Us</b></li>
+   </div>
+   <div style="position: relative; left: 840px;bottom: 200px; bottom: 510px;">
+      <h3  style="color: orange; position: relative; right: 20px;"></b>About Us</b></h3>
+      <li style="color: white"><b>Our Story</b></li>
+      <br /><li style="color: white"><b>Design Philosophy</b></li>
+      <br>
+      <li style="color: white"><b>Sustainability </b></li>
+      <br>
+      <li style="color: white"><b>Press</b></li>
+      <br>
+      <li style="color: white"><b>Careers</b></li>
+      
+   </div>
+   
+   <div style="position: relative;left: 1150px; bottom: 792px;">
+     <h3 style="color: orange;position: relative;right: 20px;">Contact Info</h3>
+     <li style="color: white">🌍  <b>  123 Designs Avenue, Pakistan,</b></li>
+     <br />
+     
+     <li style="color: white">☎️   <b>(92)         3482435179</b></li>
+     <br />
+     <li style="color: white">✉️    <b>infochiclighting.com </b> </li>
+     
+       
+     </div>
+   </div>
+   </div>
+   
+   <div style="border: 3px solid black; width: 100%; height: 125px; background: linear-gradient(#F28500,#2B2B2B);">
+    <div style="position: relative; left: 70px;">
+     
+     <h5 style="position: relative; left: 70px; color: white;"> <b>Tuesday, November 11,2025 at 06:36:45</b></h5>
+     <h5 style="position: relative; left: 1100px;bottom: 50px; color: white;"></b>Your Location 24.9070,67.0336</b></h5>
+     <h6 style="position: relative;left: 570px; bottom: 45px; color: white;">© 2025 Chic Lighting & Design. All right reserved.</h6>
+    </div>
+     
+     
+     
+     
+    
+   </div>
+
+</body>
+</html>
